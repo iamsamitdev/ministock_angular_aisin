@@ -7,6 +7,10 @@ import { ContactComponent } from './pages/frontend/contact/contact.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { BackendLayoutComponent } from './layouts/backend-layout/backend-layout.component';
+import { DashboardComponent } from './pages/backend/dashboard/dashboard.component';
+import { UsersComponent } from './pages/backend/users/users.component';
+import { StockComponent } from './pages/backend/stock/stock.component';
 
 
 const routes: Routes = [
@@ -41,6 +45,25 @@ const routes: Routes = [
       {
         path:'register',
         component:RegisterComponent
+      }
+    ]
+  },
+  // Route สำหรับเรียกหน้า Backend
+  {
+    path: 'backend',
+    component: BackendLayoutComponent,
+    children:[
+      {
+        path: '',
+        component: DashboardComponent
+      },
+      {
+        path: 'stock',
+        component: StockComponent
+      },
+      {
+        path: 'users',
+        component: UsersComponent
       }
     ]
   }
