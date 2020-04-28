@@ -1,3 +1,35 @@
-<h1>Dashboard</h1>
-<chart [type]="typeChart" [data]="dataChart" [options]="optionsChart" style="height: 400px"></chart>
+<div class="row">
+    <div class="col-md-6">
+        <chart [type]="typeChart1" [data]="dataChart1" [options]="optionsChart1" style="height: 400px"></chart>
+    </div>
+    <div class="col-md-6">
+        <chart [type]="typeChart" [data]="dataChart" [options]="optionsChart" style="height: 450px"></chart>
+      </div>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr class="bg-primary text-light">
+            <th>ID</th>
+            <th>Name</th>
+            <th>Detail</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of [1, 2, 3, 4, 5,6,7,8,9, 10]">
+            <td>{{ i }}</td>
+            <td>Product {{ i }}</td>
+            <td>Detail product {{ i }} Lorem ipsum dolor sit amet consectetur adipisicing elit</td>
+            <td>299.90</td>
+            <td>20</td>
+            <td>2020-02-01</td>
+            <td>In Stock</td>
+        </tr>
+    </tbody>
+</table>
+
 
