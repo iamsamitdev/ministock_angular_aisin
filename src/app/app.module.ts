@@ -4,6 +4,13 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// HttpModule
+import { HttpClientModule } from '@angular/common/http';
+
+// Service and Guard
+import { AuthService } from './service/auth.service';
+import { AuthGuard } from './auth/auth.guard';
+
 // Form Module
 import { FormsModule } from '@angular/forms';
 
@@ -46,13 +53,14 @@ import { BackendSidebarComponent } from './shared/backend/backend-sidebar/backen
     BackendSidebarComponent
   ],
   imports: [
+    HttpClientModule,
     ChartModule,
     FormsModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

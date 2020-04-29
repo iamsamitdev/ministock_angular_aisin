@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../../service/product.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,11 +16,20 @@ export class DashboardComponent implements OnInit {
   dataChart1:any;
   optionsChart1:any;
 
-  constructor() { }
+  // สร้างตัวแปรรับข้อมูลจาก API
+  dataProduct:any = []
+
+  constructor(private api: ProductService) { }
 
   ngOnInit(): void {
 
-    // Line Chart
+    // Read Product API
+    this.api.getProducts().subscribe((data: {}) => {
+      // console.log(data)
+      this.dataProduct = data
+    })
+
+    // Bar Chart
     this.typeChart = 'bar' // สามารถกำหนดเป็น 'line','bar','radar','pie','doughnut','polarArea','bubble','scatter
    
     this.dataChart = {
@@ -33,12 +43,12 @@ export class DashboardComponent implements OnInit {
         ]
     }
     
-     this.optionsChart1 ={
+     this.optionsChart ={
       responsive: true,
       maintainAspectRatio: false
     }
 
-    // Pie Chart
+    // Line Chart
     this.typeChart1 = 'line' // สามารถกำหนดเป็น 'line','bar','radar','pie','doughnut','polarArea','bubble','scatter
    
     this.dataChart1 = {

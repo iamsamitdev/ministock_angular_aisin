@@ -1,1 +1,50 @@
-<p>stock works!</p>
+<h1>Add new product</h1>
+
+<div class="p-3 mt-3 card">
+    <form >
+
+        <div class="form-group row">
+            <label for="product_name" class="col-sm-3 col-form-label">Product name</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="product_name" id="product_name" [(ngModel)]="dataProductAdd.product_name">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="product_detail" class="col-sm-3 col-form-label">Product detail</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="product_detail" id="product_detail" [(ngModel)]="dataProductAdd.product_detail">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="product_barcode" class="col-sm-3 col-form-label">Product barcode</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="product_barcode" id="product_barcode" [(ngModel)]="dataProductAdd.product_barcode">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="product_price" class="col-sm-3 col-form-label">Product price</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="product_price" id="product_price" [(ngModel)]="dataProductAdd.product_price">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="product_qty" class="col-sm-3 col-form-label">Product qty</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="product_qty" id="product_qty" [(ngModel)]="dataProductAdd.product_qty">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+                <button type="submit" class="btn btn-primary" (click)="submitAddProduct()">Submit</button>
+                {{ dataProductAdd | json }}
+            </div>
+        </div>
+
+    </form>
+</div>

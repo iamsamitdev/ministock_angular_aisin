@@ -12,6 +12,8 @@ import { DashboardComponent } from './pages/backend/dashboard/dashboard.componen
 import { UsersComponent } from './pages/backend/users/users.component';
 import { StockComponent } from './pages/backend/stock/stock.component';
 
+// Auth Guard
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   // Route สำหรับเรียกหน้า Frontend Layout
@@ -52,9 +54,14 @@ const routes: Routes = [
   {
     path: 'backend',
     component: BackendLayoutComponent,
+    canActivate: [AuthGuard],
     children:[
       {
         path: '',
+        component: DashboardComponent
+      },
+      {
+        path: 'dashboard',
         component: DashboardComponent
       },
       {
