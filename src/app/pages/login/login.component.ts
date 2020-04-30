@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +16,22 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false
   msgStatus:string = ''
 
+  userData = {
+    "username":"",
+    "password":""
+  }
+
+  userLogin = {
+    "username":"",
+    "fullname":"",
+    "userstatus":""
+  }
+
   constructor(
     private auth: AuthService, 
     private route: Router,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private api: UserService) { }
 
   ngOnInit(): void {
     // Validation Form
@@ -33,21 +46,31 @@ export class LoginComponent implements OnInit {
 
     this.submitted = true
     if(this.loginForm.valid){
-      // alert("Form is valid")
-      if(this.loginForm.value.username == "admin" && this.loginForm.value.password == "1234"){
-        // alert("Login Success");
-        this.msgStatus = "<p class='alert alert-success text-center'>Login Success</p>"
-        // ส่งค่า username ไปเก็บลง localStorage ไว้
-        this.auth.sendToken(this.loginForm.value.username)
-        // Redirect ไปหน้า backend
-        this.route.navigate(['backend'])
-      }else{
-        // alert("Login Fail!!")
-        this.msgStatus = "<p class='alert alert-danger text-center'>Login Fail!!</p>"
-      }
+
+      this.userData.username = this.loginForm.value.username;
+      this.userData.password = this.loginForm.value.password;
+
+      this.api.SignIn(this.userData).subscribe((data: {}) => {
+          // console.log(data)
+          if(data['status'] == "success"){
+
+            this.userLogin = {
+              "username":this.loginForm.value.username,
+              "fullname":data['fullname'],
+              "userstatus":data['user_status']
+            }
+
+            this.msgStatus = "<p class='alert alert-success text-center'>Login Success</p>"
+            // ส่งค่า username ไปเก็บลง localStorage ไว้
+            this.auth.sendToken(this.userLogin)
+            // Redirect ไปหน้า backend
+            this.route.navigate(['backend'])
+          }else{
+            // alert("Login Fail!!")
+            this.msgStatus = "<p class='alert alert-danger text-center'>Login Fail!!</p>"
+          }
+          
+      });
     }
-  
-
   }
-
 }

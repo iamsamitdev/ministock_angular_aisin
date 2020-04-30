@@ -10,6 +10,7 @@
                     formControlName="username" [ngClass]="{'is-invalid': submitted && loginForm.controls.username.errors}">
                     <div *ngIf="submitted &&  loginForm.controls.username.errors" class="invalid-feedback">
                         <div *ngIf="loginForm.controls.username.errors.required">Username is required</div>
+                        <div *ngIf="loginForm.controls.username.errors.minlength">Minimum is 3 charactor</div>
                     </div>
                 </div>
             </div>

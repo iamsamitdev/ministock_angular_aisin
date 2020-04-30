@@ -8,7 +8,15 @@ import { AuthService } from '../../../service/auth.service'
 })
 export class BackendNavbarComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  userProfile = {
+    "fullname":"",
+    "user_status": ""
+  }
+
+  constructor(private auth: AuthService) {
+    this.userProfile.fullname = this.auth.getUser()['fullname']
+    this.userProfile.user_status = this.auth.getUser()['userstatus']
+   }
 
   ngOnInit(): void {
   }

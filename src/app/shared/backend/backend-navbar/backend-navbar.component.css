@@ -1,0 +1,18 @@
+.logo {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.navbar-dark, .bg-dark {
+  background-color: blueviolet !important;
+  font-size: 20px;
+}
+
+.navbar-brand {
+  font-size: 20px;
+}
+
+.dropdown-item {
+  font-size: 20px;
+}
+/*# sourceMappingURL=backend-navbar.component.css.map */

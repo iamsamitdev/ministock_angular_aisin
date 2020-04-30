@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACD,KAAK,EAAE,IAAI;EACX,YAAY,EAAE,IAAI;CACrB;;AAED,AAAA,YAAY,EAAG,QAAQ,CAAA;EACnB,gBAAgB,EAAE,qBAAqB;EACvC,SAAS,EAAC,IAAI;CACjB;;AAED,AAAA,aAAa,CAAA;EACT,SAAS,EAAC,IAAI;CACjB;;AAED,AAAA,cAAc,CAAA;EACV,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "backend-navbar.component.scss"
+    ],
+    "names": [],
+    "file": "backend-navbar.component.css"
+}

@@ -23,15 +23,18 @@ const routes: Routes = [
     children: [
       {
         path:'',
-        component: HomeComponent
+        component: HomeComponent,
+        data: { title: "Home"}
       },
       {
         path:'about',
-        component:AboutComponent
+        component:AboutComponent,
+        data: { title: "About"}
       },
       {
       path:'contact',
-      component:ContactComponent
+      component:ContactComponent,
+      data: { title: "Contact"}
       }
     ]
   },
@@ -42,11 +45,13 @@ const routes: Routes = [
     children:[
       {
         path:'login',
-        component: LoginComponent
+        component: LoginComponent,
+        data: { title: "Login"}
       },
       {
         path:'register',
-        component:RegisterComponent
+        component:RegisterComponent,
+        data: { title: "Register"}
       }
     ]
   },
@@ -58,19 +63,23 @@ const routes: Routes = [
     children:[
       {
         path: '',
-        component: DashboardComponent
+        component: DashboardComponent,
+        data: { title: "Dashboard"}
       },
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        data: { title: "Dashboard"}
       },
       {
         path: 'stock',
-        component: StockComponent
+        component: StockComponent,
+        data: { title: "Stock"}
       },
       {
         path: 'users',
-        component: UsersComponent
+        component: UsersComponent,
+        data: { title: "Users"}
       }
     ]
   }

@@ -6,11 +6,24 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  userProfile = {
+    "fullname":"",
+    "userstatus":""
+  }
+
   constructor(private myRoute: Router) { }
 
-  sendToken(token:string){
+  sendToken(token:any){
     // บันทึกข้อมูลที่ได้ลง localStorage
-    localStorage.setItem("LoggedInUser", token)
+    localStorage.setItem("LoggedInUser", token['username'])
+    localStorage.setItem("LoggedFullname", token['fullname'])
+    localStorage.setItem("LoggedUserStatus", token['userstatus'])
+  }
+
+  getUser(){
+    this.userProfile.fullname = localStorage.getItem("LoggedFullname")
+    this.userProfile.userstatus = localStorage.getItem("LoggedUserStatus")
+    return this.userProfile
   }
 
   getToken(){
