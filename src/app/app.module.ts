@@ -8,11 +8,12 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 // Service and Guard
+import { ConstantService } from './service/common/constant.service';
 import { AuthService } from './service/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 
 // Form Module
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Chart JS
 import { ChartModule } from 'angular2-chartjs';
@@ -55,12 +56,13 @@ import { BackendSidebarComponent } from './shared/backend/backend-sidebar/backen
   imports: [
     HttpClientModule,
     ChartModule,
+    ReactiveFormsModule,
     FormsModule,
     RouterModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, ConstantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
